@@ -1,0 +1,73 @@
+bank: Банк
+
+client: Клиент
+client.shape: person
+
+collector: Сборщик
+collector.shape: person
+
+cookie-maker: Производитель печенья
+
+golden-hat: Золотая шляпа
+
+manager-of-testing: Менеджер
+manager-of-testing.shape: person
+manager: Менеджер
+manager.shape: person
+
+system: Система
+system.monolith: Монолит
+system.monolith.billing: Билинг
+system.monolith.client-orders: Заявки клиентов
+system.monolith.client-ui: Интерфейс клиента
+system.monolith.collector-ui: Интерфейс сборщика
+system.monolith.manager-ui: Интерфейс менеджера
+system.monolith.matching: Матчинг
+system.monolith.prices: Расчет стоимости
+system.monolith.worker-api: API приложения воркера
+system.monolith.quality-control: Контроль качества
+system.notifications: Уведомления
+system.testing: Отбор воркеров
+system.testing.proxy: Прокси
+system.testing.application: Приложение
+system.worker-app: Приложение воркера
+
+worker: Воркер
+worker.shape: person
+
+
+manager -> system.monolith.manager-ui: использует
+
+system.monolith.manager-ui -> system.monolith.client-orders: получить список заказов
+system.monolith.manager-ui -> system.monolith.prices: изменить номенклатуру
+
+client -> system.monolith.client-ui: оставляет заявки
+system.monolith.client-ui -> system.monolith.client-orders: создать заявку
+system.monolith.client-orders -> system.monolith.matching: подобрать воркера
+system.monolith.client-orders -> system.monolith.prices: рассчитать стоимость
+system.monolith.client-orders -> system.monolith.billing: выставить счет
+system.monolith.billing -> bank: выполняет расчеты с клиентами
+system.monolith.billing -> golden-hat: выполняет расчеты с воркерами
+
+worker -> system.worker-app: выполняет заявки клиентов
+system.worker-app -> system.monolith.worker-api: (HTTP)
+system.monolith.worker-api -> system.monolith.client-orders: изменить статус
+
+collector -> system.monolith.collector-ui: отмечает выполненные заказы на сборку
+system.monolith.collector-ui -> system.monolith.client-orders: поставить отметку
+
+system.monolith.client-orders -> cookie-maker: отправляет заказ
+
+system.monolith.client-orders -> system.monolith.quality-control: поставить в очередь
+system.monolith.manager-ui -> system.monolith.quality-control: записать результаты
+
+worker -> system.testing: оставляет заявку на отбор
+manager-of-testing -> system.testing: рассматривает заявки
+
+manager-of-testing -> system.testing: управляет набором тестов
+worker -> system.testing: проходит тестирование
+system.testing -> system.monolith: (HTTP) добавить воркера
+
+system.testing.proxy -> system.testing.application
+
+system.monolith -> system.notifications: (HTTP) поставить в очередь

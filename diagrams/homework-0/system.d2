@@ -1,0 +1,29 @@
+bank: Банк
+
+client: Клиент
+client.shape: person
+
+collector: Сборщик
+collector.shape: person
+
+cookie-maker: Производитель печенья
+
+golden-hat: Золотая шляпа
+
+manager: Менеджер
+manager.shape: person
+
+system: Система
+
+worker: Воркер
+worker.shape: person
+
+
+client -> system: оставляет заявки
+worker -> system: выполняет заявки
+manager -> system: управляет системой и контролирует качество
+collector -> system: выполняет заказы на сборку
+
+system -> bank: принимает оплату от клиентов
+system -> golden-hat: перечисляет оплату воркерам
+system -> cookie-maker: отправляет заказы на печенье

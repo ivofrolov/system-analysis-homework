@@ -1,2 +1,8 @@
 * Домашки к курсу про анализ систем
 https://tough-dev.school/system-analysis
+
+| 0 | [[file:homework-0.org][homework-0.org]] |
+| 1 |                |
+| 2 |                |
+| 3 |                |
+| 4 |                |
