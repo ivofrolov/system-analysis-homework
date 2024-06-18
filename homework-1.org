@@ -1,7 +1,7 @@
 * Event Storming Model
-#+begin_export html
+#+BEGIN_HTML
 <img src="diagrams/homework-1/event-storming-model.jpg">
-#+end_export
+#+END_HTML
 
 Нотификации на схеме не показаны, потому что рассылаются практически на каждое событие и не блокируют процессы.
 
@@ -18,14 +18,14 @@
 Тотализатор был выделен в отдельный контекст из-за серой зоны, в которой он должен находиться.
 
 * Модель данных
-#+begin_export html
+#+BEGIN_HTML
 <img src="diagrams/homework-1/data-model.svg">
-#+end_export
+#+END_HTML
 
 * Модель коммуникаций
-#+begin_export html
+#+BEGIN_HTML
 <img src="diagrams/homework-1/communications-model.svg">
-#+end_export
+#+END_HTML
 
 * Реализация проекта
 
