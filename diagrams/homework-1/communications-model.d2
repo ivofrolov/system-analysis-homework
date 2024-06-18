@@ -1,0 +1,51 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-id: 1
+  }
+}
+
+classes: {
+  event: {
+    style: {
+      stroke: red
+    }
+  }
+  data: {
+    style: {
+      stroke: blue
+    }
+  }
+}
+
+Legend: {
+  near: top-left
+
+  Some Bounded Context -> Other Bounded Context: business event {class: event}
+  Some Bounded Context <- Other Bounded Context: data coupling {class: data}
+}
+
+ТестированиеНайм: Тестирование и найм
+
+Заказы <- ТестированиеНайм: Воркер {class: data}
+Заказы <- Задачи: Задача выполнена {class: event}
+Заказы <- Задачи: Задача провалена {class: event}
+
+Склад <- Заказы: Заказ {class: data}
+Склад <- Заказы: Задача создана {class: event}
+
+Задачи <- Заказы: Заказ {class: data}
+
+КонтрольКачества: Контроль качества
+КонтрольКачества <- Заказы: Заказ {class: data}
+КонтрольКачества <- Задачи: Задача выполнена {class: event}
+КонтрольКачества <- Задачи: Задача провалена {class: event}
+КонтрольКачества <- Заказы: Задача отменена {class: event}
+
+Билинг <- Заказы: Клиент, Заказ {class: data}
+Билинг <- ТестированиеНайм: Воркер {class: data}
+
+Тотализатор  <- Заказы: Заказ {class: data}
+Тотализатор <- Задачи: Задача выполнена {class: event}
+Тотализатор <- Задачи: Задача провалена {class: event}
+Тотализатор <- Заказы: Задача отменена {class: event}
