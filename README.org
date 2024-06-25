@@ -3,6 +3,8 @@ https://tough-dev.school/system-analysis
 
 | 0 | [[file:homework-0.org][homework-0.org]] |
 | 1 | [[file:homework-1.org][homework-1.org]] |
-| 2 |                |
+| 2 | [[file:homework-2.org][homework-2.org]] |
 | 3 |                |
 | 4 |                |
+
+[[https://miro.com/app/board/uXjVK7J0HxY=/][Working Board]]
