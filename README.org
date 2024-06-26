@@ -7,4 +7,5 @@ https://tough-dev.school/system-analysis
 | 3 |                |
 | 4 |                |
 
+[[https://github.com/ivofrolov/system-analysis-homework][Repository]]
 [[https://miro.com/app/board/uXjVK7J0HxY=/][Working Board]]
