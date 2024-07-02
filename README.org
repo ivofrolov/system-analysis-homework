@@ -4,7 +4,7 @@ https://tough-dev.school/system-analysis
 | 0 | [[file:homework-0.org][homework-0.org]] |
 | 1 | [[file:homework-1.org][homework-1.org]] |
 | 2 | [[file:homework-2.org][homework-2.org]] |
-| 3 |                |
+| 3 | [[file:homework-3.org][homework-3.org]] |
 | 4 |                |
 
 [[https://github.com/ivofrolov/system-analysis-homework][Repository]]
