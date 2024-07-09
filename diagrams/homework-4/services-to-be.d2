@@ -1,0 +1,53 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-id: 1
+  }
+}
+
+classes: {
+  core: { style: { fill: mediumseagreen }}
+  supporting: { style: { fill: mediumpurple }}
+  generic: { style: { fill: silver }}
+  external: { style: { fill: silver }}
+  tech: { style: { fill: lightyellow }}
+}
+
+
+Скоринг: Тестирование и найм (скоринг) { class: core }
+Матчинг: Матчинг воркеров под заказ { class: core }
+
+ИсполнениеЗаказов: Исполнение заказов {
+    class: supporting
+
+    Заказы клиентов
+    Сборка расходников
+    Задачи воркеров
+    Нотификации: { class: tech }
+}
+
+КонтрольКачества: Контроль качества { class: supporting }
+РасчетыКлиентов: Расчеты с клиентами { class: supporting }
+ЗаказПеченья: Заказ печенья { class: external }
+
+РасчетыВоркеров: Расчеты с воркерами { class: supporting }
+ЗолотаяШляпа: Золотая шляпа { class: external }
+
+Тотализатор { class: supporting }
+
+
+Скоринг -> Матчинг: async
+
+Матчинг <- ИсполнениеЗаказов: sync
+
+ИсполнениеЗаказов -> КонтрольКачества: async
+ИсполнениеЗаказов -> РасчетыКлиентов: async
+ИсполнениеЗаказов -> РасчетыВоркеров: async
+
+ИсполнениеЗаказов -> ЗаказПеченья: sync
+РасчетыВоркеров -> ЗолотаяШляпа: sync
+
+Скоринг -> РасчетыКлиентов: async
+Скоринг -> РасчетыВоркеров: async
+
+ИсполнениеЗаказов -> Тотализатор: async
